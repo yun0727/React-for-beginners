@@ -10,13 +10,13 @@
     function App() {
       //첫번째 요소는 데이터, 두번째 요소는 데이터를 수정하기 위한 함수
       const [amount, setAmount] = React.useState(0);
-      const [flipped, setFlipped] = React.useState(false);
+      const [inverted, setInverted] = React.useState(false);
       //데이터를 업데이트 해주는 역할
       const onChange = (event) => {
         setAmount(event.target.value);
       };
       const reset = () => setAmount(0);
-      const onFlip = () => {
+      const onInvert = () => {
         reset();
         setFlipped((current) => !current);
       };
@@ -26,27 +26,29 @@
           <div>
             <label htmlFor="minutes">Minutes</label>
             <input
-              value={flipped ? amount * 60 : amount}
+              value={inverted ? amount * 60 : amount}
               id="minutes"
               placeholder="Minutes"
               type="number"
               onChange={onChange}
-              disabled={flipped === true}
+              disabled={inverted === true}
             />
           </div>
           <div>
             <label htmlFor="hours">Hours</label>
             <input
-              value={flipped ? amount : Math.round(amount / 60)}
+              value={inverted ? amount : Math.round(amount / 60)}
               id="hours"
               placeholder="Hours"
               type="number"
+              disabled={inverted === false}
               onChange={onChange}
-              disabled={flipped === false}
             />
           </div>
           <button onClick={reset}>Reset</button>
-          <button onClick={onFlip}>Flip</button>
+          <button onClick={onInvert}>
+            {inverted ? "Turn back" : "Invert"}
+          </button>
         </div>
       );
       const root = document.getElementById("root");
