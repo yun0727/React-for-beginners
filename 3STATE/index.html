@@ -8,7 +8,9 @@
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <script type="text/babel">
     function App() {
-      const [minutes, setMinutes] = React.useState();
+      //첫번째 요소는 데이터, 두번째 요소는 데이터를 수정하기 위한 함수
+      const [minutes, setMinutes] = React.useState(0);
+      //데이터를 업데이트 해주는 역할
       const onChange = (event) => {
         setMinutes(event.target.value);
       };
