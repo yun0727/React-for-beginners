@@ -5,10 +5,10 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/movie">
+        <Route path="/about-us">
           <Detail />
         </Route>
-        <Route path="/">
+        <Route path="/movie/:id">
           <Home />
         </Route>
       </Switch>
