@@ -5,11 +5,19 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path="/about-us">
-          <Detail />
+        <Route path={`${process.env.PUBLIC_URL}/about-us`} element={< Detail />}>
+
         </Route>
-        <Route path="/movie/:id">
+
+        {/* <Route path="/about-us">
+          <Detail />
+        </Route> */}
+
+        {/* <Route path="/movie/:id">
           <Home />
+        </Route> */}
+        <Route path={`${process.env.PUBLIC_URL}//movie/:id`} element={< Home />}>
+
         </Route>
       </Switch>
     </Router>
